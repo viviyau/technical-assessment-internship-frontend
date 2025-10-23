@@ -11,10 +11,133 @@
 <body>
     <div class="container mt-5">
         <h1 class="text-center">Welcome to the Frontend Assessment</h1>
+        
         <!-- TODO: Implement Task 1 here -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Your Brand</a> 
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                     <ul class="navbar-nav ms-auto">
+                         <li class="nav-item">
+                             <a class="nav-link active" aria-current="page" href="#">Home</a>
+                         </li>
+                         <li class="nav-item">
+                             <a class="nav-link" href="#">About</a>
+                         </li>
+                         <li class="nav-item">
+                             <a class="nav-link" href="#">Contact</a>
+                         </li>
+                     </ul>
+                </div>
+            </div>
+        </nav>
+            
         <!-- TODO: Implement Task 2 here -->
+        <section class="container mt-5">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Card image 1">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Service One</h5>
+                    <p class="card-text">This is a short description of the first service.</p>
+                    <a href="#" class="btn btn-primary mt-auto">Learn More</a>   
+              </div>
+                        </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Card image 2">
+                         <div class="card-body d-flex flex-column">  
+                            <h5 class="card-title">Service Two</h5>
+                            <p class="card-text">This is a short description of the second service.</p>
+                            <a href="#" class="btn btn-primary mt-auto">Learn More</a>
+                             </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Card image 3">
+                            <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Service Three</h5>
+                                <p class="card-text">This is a short description of the third service.</p>
+                                <a href="#" class="btn btn-primary mt-auto">Learn More</a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <!-- TODO: Implement Task 3 here -->
+        <section class="container mt-5 mb-5">
+            <div class="row justify-content-center">
+              <div class="col-lg-6">
+                  <h2 class="text-center mb-4">Contact Us</h2>
+                  <form id="contactForm">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="nameInput" placeholder="Your Name" required>
+                        <label for="nameInput">Name</label>
+                    </div>
+                      <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="emailInput" placeholder="name@example.com" required>
+                          <label for="emailInput">Email</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                          <textarea class="form-control" id="messageInput" placeholder="Leave a message here" style="height: 120px" required></textarea>
+                          <label for="messageInput">Message</label>
+                      </div>
+                      <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>
+                  </form>
+              </div>
+            </div>
+      </section>
+
+        <!-- TODO: Implement Task 4 here -->
+        <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="confirmationModalLabel">Form Submission</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p><strong>Name:</strong> <span id="modalName"></span></p>
+                      <p><strong>Email:</strong> <span id="modalEmail"></span></p>
+                      <p><strong>Message:</strong> <span id="modalMessage"></span></p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+      </div>
+
     </div>
 </body>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent actual form submission
+            
+            // Get form values
+            const name = document.getElementById('nameInput').value;
+            const email = document.getElementById('emailInput').value;
+            const message = document.getElementById('messageInput').value;
+
+            // Update modal content
+            document.getElementById('modalName').textContent = name;
+            document.getElementById('modalEmail').textContent = email;
+            document.getElementById('modalMessage').textContent = message;
+
+            // Show modal using Bootstrap's JS API
+            const modal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+            modal.show();
+        });
+    </script>
 
 </html>
